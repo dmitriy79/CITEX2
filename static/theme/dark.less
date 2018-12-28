@@ -1,0 +1,406 @@
+@clr: #aaa;
+@bg-main:#080d13;
+@bg-part:#131a21;
+@bg-li-hov: rgb(27, 35, 43);
+body,
+#footer {
+	color: @clr;
+	background: @bg-main;
+}
+
+#app {
+	background: @bg-main;
+	.bg-part{
+		background: #131a21;
+	}
+	.bod_rc{
+		border-right: 1px solid #202538;
+	}
+	.bod_bc{
+		border-bottom: 1px solid #202538;
+	}
+	.bgf8{
+		background: #131a21;
+	}
+	.eee{
+		background: #080d13;
+	}
+	.input_bg{
+    border-color: #4b535f;
+    color: rgba(255, 255, 255, 0.8);
+    background: #1b212f;
+  }
+	/* 主背景 */
+	#c2c-box{
+		.show-detail{
+			background: #3a4067;
+		}
+	}
+	.add-mycoin,>.indexBlackes>.box{
+		background: @bg-main;
+		.account{
+			margin-bottom: 0;
+		}
+	}
+	>.indexBlackes{
+		background: #080d13;
+		>.login,.forget-box,#register-box,{
+			background: @bg-part;
+		}
+	}
+	/* 模块背景 */
+	#user-center > .content > ul, #user-center > .content > div,>.login,.indexBlackes .indexBlackes,>.forget-box{
+		background: @bg-part;
+	}
+  .box{
+    
+    .content_li,.list li{
+      border-bottom: 1px solid #202538;
+    }
+    .hide_div{
+      border:1px solid #202538;
+    }
+    input{
+      color: #fff;
+    }
+  }
+  .box .bgf8{
+    background: @bg-part;
+  }
+	.homeLogin,
+	.homeLogin:hover,
+	.userInfo,
+	.userInfo:hover {
+		background: rgba(37, 46, 62, 0.9);
+	}
+
+	/* 首页登录框 */
+	.homeLogin {
+		background: rgba(37, 46, 62, 0.9);
+
+		&:hover {
+			background: rgba(37, 46, 62, 0.9);
+		}
+
+		.userInfo {
+			background: rgba(37, 46, 62, 0.9);
+
+			&:hover {
+				background: rgba(37, 46, 62, 0.9);
+
+			}
+		}
+	}
+
+	/* 左上币种列表 */
+	.coins-list .list-con li {
+		border-top: 1px solid #19222b !important;
+	}
+	.coins-list .list-con li:last-child {
+		border-bottom: 1px solid #19222b !important;
+	}
+
+	#footer {
+		background: #080d13;
+	}
+
+	/* 币币交易 */
+	.home {
+		background: rgb(8, 13, 19);
+
+		.main {
+			.main-l {
+				background: @bg-part;
+
+				>div {
+					background: @bg-part;
+					border: none;
+				}
+
+				.sidebar {
+					background: @bg-part;
+					border: none;
+
+					.tabtitle {
+						.active {
+							border: 1px solid #a3acb5;
+							border-bottom: none !important;
+						}
+
+						span,
+						.active {
+							border-bottom: 1px solid #a3acb5;
+						}
+					}
+
+					ul.coin-wrap li p:nth-child(even) {
+						background: rgba(0, 0, 0, 0.1) !important;
+					}
+
+					ul.coin-wrap li p:hover {
+						background: rgb(27, 35, 43) !important;
+					}
+				}
+
+				/* 币币交易公告 */
+					.notice {
+						background: @bg-part;
+						border: none;
+						.account-content {
+							background: @bg-part;
+							li {
+								border-bottom: 1px dashed grey;
+							}
+						}
+					}	
+			}
+
+			.main-r {
+				background: @bg-part;
+				border-left: none;
+
+				.exchange {
+
+					.new_price,
+					.line {
+						border-bottom: 1px solid #343a48;
+					}
+
+					ul li:nth-child(odd) {
+						background: rgba(0, 0, 0, 0.1) !important;
+					}
+
+					ul li:hover {
+						background: rgb(27, 35, 43) !important;
+					}
+				}
+
+				.entrust {
+					.list-title {
+						border-bottom: 1px solid #343a48;
+					}
+
+					.content {
+						border: 1px solid #343a48;
+					}
+
+					span {
+						color: #aaa;
+					}
+					.active{
+						color: #d45858;
+					}
+					.ceilColor{
+						color: #009688
+					}
+				}
+
+				.currency {
+					border: 1px solid #343a48;
+				}
+
+				.detail {
+					.list-title {
+						border-bottom: 1px solid #343a48;
+					}
+
+					ul {
+						color: #aaa;
+					}
+					.list-item{
+						li:nth-child(even) {
+							background: rgba(0, 0, 0, 0.1) !important;
+						}
+						li:hover {
+							background: rgb(27, 35, 43) !important;
+						}
+					}
+				}
+			}
+		}
+
+		.trade {
+			.available {
+				border-bottom: 1px solid #343a48;
+			}
+
+			input {
+				background-color: rgba(54, 60, 68, 0.6);
+				border-color: #4b535f;
+				color: #fff;
+			}
+		}
+	}
+
+	/* c2c */
+	#c2c-box {
+		border: none;
+		background: rgb(8, 13, 19);
+
+		>div {
+			background: @bg-part;
+		}
+    .mask {
+			background: rgba(0,0,0,.7);
+	  }
+		.c2c-l {
+			margin-right: 10px;
+			border: none;
+
+			ul {
+				background: @bg-part;
+
+				li:hover,
+				.bg_active {
+					background: #262b3c;
+				}
+			}
+		}
+
+		.c2c-r {
+			.inp-title {
+				border-bottom: 1px solid #343a48;
+			}
+
+			.inp-box {
+				border: 1px solid #4b535f;
+
+				span {
+					background: none;
+				}
+
+				input {
+					// background-color: rgba(54, 60, 68, 0.6);
+					border-color: #4b535f;
+					color: #fff;
+					background: #1b212f;
+				}
+			}
+
+			.bot {
+				.list-title {
+					border-top: 1px solid #343a48;
+				}
+
+				li {
+					border-top: 1px solid #292e42;
+				}
+
+				.list-title:hover,
+				li:hover {
+					background: #212c38;
+				}
+			}
+		}
+	}
+  .wrap{
+    .inp_wrap{
+      border: 1px solid  #4b535f;
+      p {
+        background: none;
+        border-right: 1px solid #4b535f;
+        color: #aaa;
+			}
+
+			input {
+				// background-color: rgba(54, 60, 68, 0.6);
+				border-color: #4b535f;
+				color: rgba(255, 255, 255, 0.8);
+				background: #1b212f;
+			}
+    }
+  }
+  .currency-lst{
+    ul{
+      background: @bg-part;
+      .list_title{
+        background: #282e42;
+      }
+      li{
+        border-bottom:1px solid #313548;
+      }
+      li:hover{
+        background: #282e42;
+      }
+    }
+  }
+	#user-setting {
+		background: @bg-part;
+    .setting-l{
+      border-right: 1px solid #4b535f;
+    }
+		.inp-item {
+			border: 1px solid #4b535f;
+
+			div {
+        background: none;
+        border-right: 1px solid #4b535f;
+			}
+
+			input {
+				// background-color: rgba(54, 60, 68, 0.6);
+				border-color: #4b535f;
+				color: rgba(255, 255, 255, 0.8);
+				background: #1b212f;
+			}
+		}
+	}
+  .notice .account-content{
+    li{
+      border-bottom: 1px dashed #61688a;
+    }
+	}
+	.brcolor{border-right: 1px dashed #2f3440}
+	// 公告
+	.noticeDetail{
+		background: @bg-part;
+	}	
+	// 个人
+	#user-center > .content > .content-l{
+		border-right: 1px solid #1e272f;
+	}
+	#user-security ul li {
+    border-top: 1px solid #1e272f;
+}
+	.input-main{
+		border-color: #4b535f;
+		color: #fff;
+		background: #1b212f;
+	}
+	// 工单
+	.hisorder{
+    .tabbox{
+        border-bottom: 1px solid #202538;
+        .ticket-active {
+            border: 1px solid #202538;
+            margin-bottom: -1px;
+            border-bottom-color: #080d13;
+        }
+		}
+	}
+	.detail .enterbox .chossefile{
+    background: #283340;
+	}
+	// 法币
+	#legaltrade-box > .list-box > .list-title {
+    border-bottom: 1px solid #4d535a;
+  }
+	#legaltrade-box > .buy-sell > div > .now > .current {
+    border-bottom: 2px solid #fff;
+    color: #fff;
+	}
+	.log_wrap[data-v-1f036bf9] {
+    border: 1px solid #1d1d1f;
+    background: #131a21;
+	}
+	.allow{color:#333}
+}
+// 法币
+
+	// 滚动条
+	.scroll::-webkit-scrollbar {
+    background-color: #080d13!important;
+  }
+	.scroll::-webkit-scrollbar-thumb {
+    background-color: #222e3c!important;
+  }
