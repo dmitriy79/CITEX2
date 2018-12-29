@@ -1,9 +1,10 @@
 <template>
   <div id="index-head" class="flex">
     <div class="header-l flex">
-      <div class="logo">
+      <div class="logo" style="margin-right:10px;">
         <img src="../assets/images/logo2.png" alt="">
       </div>
+      <sapn class="title">币然交易所</sapn>
       <router-link to="/" exact>首页</router-link>
       <router-link to="/c2c">c2c交易</router-link>
       <router-link to="/legalTrade">法币交易</router-link>
@@ -147,6 +148,9 @@ export default {
 </script>
 
 <style lang='scss'>
+.title{
+  margin-right: 30px
+}
 #index-head {
   justify-content: space-between;
   padding: 0 20px;
