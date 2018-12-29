@@ -2,7 +2,7 @@
   <div id="index-head" class="flex">
     <div class="header-l flex">
       <div class="logo">
-        <img src="../assets/images/logo.png" alt="">
+        <img src="../assets/images/logo2.png" alt="">
       </div>
       <router-link to="/" exact>首页</router-link>
       <router-link to="/c2c">c2c交易</router-link>
