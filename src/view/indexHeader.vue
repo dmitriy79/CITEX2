@@ -4,7 +4,7 @@
       <div class="logo" style="margin-right:10px;">
         <img src="../assets/images/logo2.png" alt="">
       </div>
-      <sapn class="title">币然交易所</sapn>
+      <span class="title">币然交易所</span>
       <router-link to="/" exact>首页</router-link>
       <router-link to="/c2c">c2c交易</router-link>
       <router-link to="/legalTrade">法币交易</router-link>
@@ -17,6 +17,7 @@
         <router-link to="/currencyApply">上币申请</router-link>
         <router-link to="/currencyList" >币种列表</router-link>
       </div>
+       <router-link to="/walletTransfer">转账至钱包</router-link>
       <div>
         <div class="download">
           <div class="curPer">app下载</div>
