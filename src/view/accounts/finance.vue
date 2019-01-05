@@ -70,9 +70,9 @@
                            <div class="left_inp_wrap flex1">
                                <p class="fColor2 ft12 mb15">
                                    <span>手续费</span>
-                                   <span>范围：<span>{{ratenum}}</span></span>
+                                   <!-- <span>范围：<span>{{ratenum}}</span></span> -->
                                </p>
-                               <label class="range_lab flex alcenter between"><input class=""  type="text" v-model="rate" /><span>{{coinname}}</span></label>
+                               <label class="range_lab flex alcenter between"><input class="" disabled  type="text" v-model="rate" /><span>{{coinname}}</span></label>
                            </div>
                            <div class="right_inp_wrap flex1">
                                <p class=" mb15">
@@ -87,7 +87,7 @@
                                <p class=" mb15">
                                    <span class="fColor2 ft12">短信验证码</span>
                                </p>
-                               <label class="get_lab flex alcenter between"><input class="" placeholder="请输入短信验证码" v-model="msgCode"  type="number" /><button class="send" @click="send" :disabled='disable'>{{sendBtn}}</button></label>
+                               <label class="get_lab flex alcenter between"><input class="" placeholder="请输入短信验证码" v-model="msgCode"  type="number" /><button class="send sendBtn" @click="send" :disabled='disable'>{{sendBtn}}</button></label>
                            </div>
                        <div class="flex">
                         <div class="flex2">
@@ -158,7 +158,7 @@ export default {
             coinname:'',
             balance:'',
             ratenum:'',
-            reachnum:'',
+            // reachnum:'',
             min_number:'',
             currency:'',
             asset_list:[],
@@ -180,6 +180,11 @@ export default {
     components:{
         indexHeader,
         left
+    },
+    computed:{
+        reachnum(){
+            return this.number*(1-this.rate)
+        }
     },
     methods:{
         goRecord(){
@@ -272,8 +277,8 @@ export default {
                         that.min_number=res.message.min_number;
                         that.minnumber=res.message.min_number;
                         that.ratenum=res.message.rate+'-'+res.message.rate;
-                        that.reachnum=0.0000;
-                        that.rate=res.message.rate;
+                        // that.reachnum=0.0000;
+                        that.rate=(res.message.rate-0).toFixed(4);
                         
                     }else{
                         console.log(res.message)
