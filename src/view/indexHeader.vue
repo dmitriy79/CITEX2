@@ -17,7 +17,7 @@
         <router-link to="/currencyApply">上币申请</router-link>
         <router-link to="/currencyList" >币种列表</router-link>
       </div>
-       <router-link to="/walletTransfer">转账至钱包</router-link>
+       <!-- <router-link to="/walletTransfer">转账至钱包</router-link> -->
       <div>
         <div class="download">
           <div class="curPer">app下载</div>

@@ -66,7 +66,7 @@
                             <input class="" type="text" :placeholder="min_number" v-model="number" />
                             <span>{{coinname}}</span>
                         </label>
-                       <div class="flex mb50">
+                       <div class="flex mb30">
                            <div class="left_inp_wrap flex1">
                                <p class="fColor2 ft12 mb15">
                                    <span>手续费</span>
@@ -81,6 +81,14 @@
                                <label class="get_lab flex alcenter between"><input class="" disabled v-model="reachnum" type="number" /><span>{{coinname}}</span></label>
                            </div>
                        </div>
+                       <p class="fColor2 ft12 mb15">资金密码</p>
+                       <input class="address_inp  mb30" type="password" placeholder="请输入资金密码" v-model="payPsw" />
+                       <div class="right_inp_wrap flex1 mb30" style="margin-left:0;">
+                               <p class=" mb15">
+                                   <span class="fColor2 ft12">短信验证码</span>
+                               </p>
+                               <label class="get_lab flex alcenter between"><input class="" placeholder="请输入短信验证码" v-model="msgCode"  type="number" /><button class="send" @click="send" :disabled='disable'>{{sendBtn}}</button></label>
+                           </div>
                        <div class="flex">
                         <div class="flex2">
                        <p class="ft12 fColor2 mb15">温馨提示</p>
@@ -162,7 +170,11 @@ export default {
             ],
             tip_list01:[
                 '请勿向上述地址充值任何非USDT资产，否则资产将不可找回。','USDT充币仅支持simple send的方法，使用其他方法（send all）的充币暂时无法上账，请您谅解。','请勿向上述地址充值任何非USDT资产，否则资产将不可找回。','USDT充币仅支持simple send的方法，使用其他方法（send all）的充币暂时无法上账，请您谅解。'
-            ]
+            ],
+            payPsw:'',
+            msgCode:'',
+            sendBtn:'发送',
+            disable:false
         }
     },
     components:{
@@ -269,6 +281,38 @@ export default {
                 }
             })
         },
+        //发送验证码
+        send(){
+            console.log('kkk')
+            var that = this;
+           that.$http({
+               url:'/api/password_send',
+               method:'POST',
+               data:{
+                   type:3
+               },
+               headers:{Authorization:that.token}
+           }).then(res=>{
+               layer.msg(res.data.message);
+               if(res.data.type == 'ok'){
+                   var times = 120;
+                   that.sendBtn = times + 's';
+                   that.disable = true;
+                   var timer = setInterval(function(){
+                       times --;
+                       that.sendBtn = times + 's';
+                       if(times<0){
+                           that.sendBtn = '发送';
+                           that.disable = false;
+                           clearInterval(timer)
+                       }
+                   },1000)
+               }
+           })
+         
+                   
+                   
+        },
         // 提币按钮
         mention() {
             var that =this;
@@ -277,6 +321,8 @@ export default {
             var number = this.number;
             var rate = this.rate;
             var min_number = this.minnumber;
+            var payPsw = this.payPsw;
+            var msgCode = this.msgCode;
             if(!address){
                 layer.alert('请输入提币地址');
                 return;
@@ -289,6 +335,15 @@ export default {
                 console.log(number,min_number)
                 return layer.alert('输入的提币数量小于最小值');
             }
+            if(!payPsw){
+                layer.alert('请输入资金密码');
+                return;
+            } 
+            if(!msgCode){
+                layer.alert('请输入短信验证码');
+                return;
+            } 
+            
             // if(rate=='' || rate>=1){
             //     layer.alert('请输入0-1之间的提币手续费');
             //     return;
@@ -300,7 +355,9 @@ export default {
                     currency:currency,
                     number:number,
                     rate:rate,
-                    address:address
+                    address:address,
+                    pay_password:payPsw,
+                    mention_currency_validation:msgCode
                 },
                 dataType: "json",
                 async: true,
@@ -606,6 +663,10 @@ export default {
        overflow-y: scroll;
    }
    .allow{color:#ddd}
+   .send{
+       cursor: pointer;
+       background: none;
+   }
 </style>
 
 
