@@ -176,7 +176,7 @@ export default {
       border-radius: 50%;
       width: 30px;
       height: 30px;
-      background: #fff;
+      // background: #fff;
       > img {
         width: 100%;
       }
