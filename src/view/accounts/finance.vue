@@ -183,7 +183,7 @@ export default {
     },
     computed:{
         reachnum(){
-            return this.number*(1-this.rate)
+            return this.number
         }
     },
     methods:{
@@ -278,7 +278,7 @@ export default {
                         that.minnumber=res.message.min_number;
                         that.ratenum=res.message.rate+'-'+res.message.rate;
                         // that.reachnum=0.0000;
-                        that.rate=(res.message.rate-0).toFixed(4);
+                        that.rate=(res.message.rate-0)*100+'%';
                         
                     }else{
                         console.log(res.message)
